@@ -17,36 +17,33 @@ static int	ft_countword(char *s, char c)
 	int	nb;
 	int	i;
 
-	nb = 1;
+	nb = 0;
 	i = 0;
-	while (s[i] == c)
-		i++;
 	while (s[i])
 	{
-		if (s[i] == c && s[i + 1] != c)
-		{
+		// Si on tombe sur un caractère NON séparateur
+		// et que le suivant est un séparateur ou la fin -> on compte 1 mot
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
 			nb++;
-		}
-		printf("nb = %d\n", nb);
 		i++;
 	}
 	return (nb);
 }
 
-char **ft_split(char const *s, char c)
-{
-	int i;
-	
-	char **string1;
 
-	i = ft_countword((char *)s, c);
-	
-	string1 = NULL;
-	return (string1);
-}
-
-int main(void)
+int	main(void)
 {
-	char *str = ",JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC,";
-	printf("%d", ft_countword(str, ','));
+	char *test1 = ",JAN,FEB,MAR,APR,,,,MAY,JUN,JUL,,AUG,SEP,OCT,NOV,DEC,";
+	char *test2 = "   Hello   world this  is   C  !  ";
+	char *test3 = "42";
+	char *test4 = ",,only,one,,word,,";
+	char *test5 = "       ";
+
+	printf("Test 1 = %d mots\n", ft_countword(test1, ','));
+	printf("Test 2 → %d mots\n", ft_countword(test2, ' '));
+	printf("Test 3 → %d mots\n", ft_countword(test3, ','));
+	printf("Test 4 → %d mots\n", ft_countword(test4, ','));
+	printf("Test 5 → %d mots\n", ft_countword(test5, ' '));
+
+	return (0);
 }
