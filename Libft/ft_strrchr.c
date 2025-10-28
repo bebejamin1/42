@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbeaurai < bbeaurai@student.42lehavre.f    +#+  +:+       +#+        */
+/*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 14:52:42 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/20 15:57:50 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/10/28 14:23:30 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,36 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	lenght;
+	int		lenght;
+	char	*ptr;
 
+	ptr = (char *)s;
 	lenght = ft_strlen(s);
-	while (lenght > 0)
+	while (lenght >= 0)
 	{
-		if (c == s[lenght])
-			return ((char *)&s[lenght]);
+		if (c == ptr[lenght])
+			return ((char *)&ptr[lenght]);
 		lenght--;
 	}
-	return (0);
+	return (NULL);
 }
 
 // #include <stdio.h>
 // // #include <string.h>
 // int main(void)
 // {
-// 	int size = 65;
+// 	int size = '\0';
 // 	//
 // 	// ********************|Ma Fonction|*******************
 // 	//
-// 	char dest[100] = "vfAoAhe";
+// 	char dest[100] = "";
 // 	printf("\n\n\t\t\033[91;01m|Ma Fonction|\033[00m");
 // 	char *str = ft_strrchr(dest, size);
 // 	printf("\nResult : %s\n", str);
 // 	//
 // 	// **************++******|La Fonction|********************
 // 	//
-// 	char dest2[100] = "vfAoAhe";
+// 	char dest2[100] = "";
 // 	printf("\n\t\t\033[92;01m|La Fonction|\033[00m");
 // 	char *str2 = strrchr(dest2, size);
 // 	printf("\nResult : %s", str2);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbeaurai < bbeaurai@student.42lehavre.f    +#+  +:+       +#+        */
+/*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 11:41:15 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/20 15:55:34 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/10/28 14:20:24 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	abeille;
+	int		i;
+	char	*ptr;
 
-	abeille = 0;
-	while (s[abeille])
-	{
-		if (c == s[abeille])
-			return ((char *)&s[abeille]);
-		abeille++;
-	}
-	return (0);
+	i = 0;
+	ptr = (char *)s;
+	while (ptr[i] != c && ptr[i])
+		i++;
+	if (ptr[i] == c)
+		return (&ptr[i]);
+	return (NULL);
 }
 
 // #include <stdio.h>
 // #include <string.h>
 // int main(void)
 // {
-// 	int size = 0;
+// 	int size = '=';
 // 	//
 // 	// ********************|Ma Fonction|*******************
 // 	//

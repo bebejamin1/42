@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbeaurai < bbeaurai@student.42lehavre.f    +#+  +:+       +#+        */
+/*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 16:31:05 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/21 14:12:03 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/10/28 16:15:48 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	lenght;
 
 	lenght = 0;
-	if (!dst)
-		return (0);
-	if (!src)
-		return (0);
 	while (src[lenght])
 		lenght++;
 	if (size == 0)

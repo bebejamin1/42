@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbeaurai < bbeaurai@student.42lehavre.f    +#+  +:+       +#+        */
+/*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:44:45 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/20 15:55:57 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/10/28 10:43:21 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdup(const char *source)
 
 	i = 0;
 	src2 = (char *)source;
-	dest = malloc(sizeof(int) * ft_strlen((char *)source));
+	dest = malloc(sizeof(char) * ft_strlen(source) + 1);
 	if (!dest)
 		return (NULL);
 	while (source[i])
@@ -33,7 +33,6 @@ char	*ft_strdup(const char *source)
 }
 
 // #include <bsd/string.h>
-// #include <stdio.h>
 // int main(void)
 // {
 // 	//

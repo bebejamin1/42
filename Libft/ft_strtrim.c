@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbeaurai < bbeaurai@student.42lehavre.f    +#+  +:+       +#+        */
+/*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 10:20:35 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/24 15:13:09 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/10/28 17:09:05 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_checkleft(char *str, char *check)
 	i = 0;
 	j = 0;
 	count = 0;
-	loop = ft_strlen((const char *)str);
+	loop = ft_strlen(str);
 	while (loop > 0)
 	{
 		j = 0;
@@ -47,13 +47,13 @@ static int	ft_checkright(char *str, char *check)
 	int		count;
 	int		loop;
 
-	i = ft_strlen((const char *)str) - 1;
-	j = ft_strlen((const char *)check);
+	i = ft_strlen(str);
+	j = ft_strlen(check);
 	count = i;
 	loop = i;
-	while (loop >= 0)
+	while (loop >= 0 && i > ft_checkleft(str, check))
 	{
-		j = ft_strlen((const char *)check);
+		j = ft_strlen(check);
 		while (j >= 0)
 		{
 			if (str[i] == check[j])
@@ -77,21 +77,17 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	a = ft_checkleft((char *)s1, (char *)set);
-	z = ft_checkright((char *)s1, (char *)set);
-	str = malloc(sizeof (char *) * (z - a) + 2);
+	z = ft_checkright((char *)s1, (char *)set) + 1;
+	str = malloc((sizeof(char) * ((z - a) + 1)));
 	if (!str)
 		return (NULL);
-	if (a >= 0 && z >= 0)
+	while (a < z)
 	{
-		while (a <= z)
-		{
-			str[i] = (char)s1[a];
-			a++;
-			i++;
-		}
-		str[i] = 0;
-		return (str);
+		str[i] = (char)s1[a];
+		a++;
+		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }
 // int main(void)
@@ -99,10 +95,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 // 	//
 // 	// ********************|Ma Fonction|*******************
 // 	//
-// 	char str1[100] = "lorem \n ipsum \t dolor \n sit \t amet";
-// 	char str2[100] = " ";
+// 	char *str1 = "\n\t    Hello \t  Please\n Trim me !\t\";
+// 	char *str2 = " \n\t";
 // 	char *a = ft_strtrim(str1, str2);
 // 	printf("\n\n\t\t\033[91;01m|Ma Fonction|\033[00m");
-// 	printf("\n\nResult : %s\n", a);
+// 	printf("\n\nResult : %s", a);
 // 	free (a);
 // }

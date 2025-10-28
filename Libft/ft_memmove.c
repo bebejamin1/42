@@ -6,7 +6,7 @@
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 07:07:33 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/24 18:01:27 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/10/28 14:30:39 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,27 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char		*maldives;
-	char		*wiki;
+	unsigned char		*maldives;
+	unsigned char		*wiki;
 	size_t				i;
 
-	maldives = (char *)dest;
-	wiki = (char *)src;
 	i = 0;
-	if (n == 0 || !dest || !src)
+	maldives = (unsigned char *)dest;
+	wiki = (unsigned char *)src;
+	if (!dest && !src)
 		return (NULL);
-	if (maldives[0] == 0 && wiki[0] == 0)
-		return (0);
-	if (ft_strlen((const char *)wiki) > ft_strlen((const char *)maldives))
+	if (dest > src)
 	{
-		while (n > i && (maldives[n] != 0 || wiki[n] != 0))
+		while (n > i)
 		{
 			maldives[n - 1] = wiki[n - 1];
 			n--;
 		}
+		return (maldives);
 	}
-	while (n >= i && (i < ft_strlen((const char *)maldives) || i < ft_strlen((const char *)wiki)) )
+	while (i < n)
 	{
-		maldives[i - 1] = wiki[i - 1];
+		maldives[i] = wiki[i];
 		i++;
 	}
 	return (maldives);
@@ -57,33 +56,36 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 // 	{
 // 		ft_memmove(dest, "consectetur", 5);
 // 		memmove(dest2, "consectetur", 5);
-// 		printf("\nma fonction : %s\n", dest);
 // 		printf("\nla fonction : %s\n", dest2);
+// 		printf("\nma fonction : %s\n", dest);
 // 	}
 // 	else if (arg == 2)
 // 	{
 // 		ft_memmove(dest, "con\0sec\0\0te\0tur", 10);
 // 		memmove(dest2, "con\0sec\0\0te\0tur", 10);
-// 		printf("\nma fonction : %s\n", dest);
 // 		printf("\nla fonction : %s\n", dest2);
+// 		printf("\nma fonction : %s\n", dest);
 // 	}
 // 	else if (arg == 3)
 // 	{
-// 		if (dest != ft_memmove(dest, src, 8))
-// 			write(1, "dest's adress was not returned\n", 31);
-// 		write(1, dest, 22);
+// 		ft_memmove(dest, src, 8);
+// 		memmove(dest2, src, 8);
+// 		printf("\nla fonction : %s\n", dest2);
+// 		printf("\nma fonction : %s\n", dest);
 // 	}
 // 	else if (arg == 4)
 // 	{
-// 		if (src != ft_memmove(src, dest, 8))
-// 			write(1, "dest's adress was not returned\n", 31);
-// 		write(1, dest, 22);
+// 		ft_memmove(src, dest, 8);
+// 		memmove(src, dest2, 8);
+// 		printf("\nla fonction : %s\n", dest2);
+// 		printf("\nma fonction : %s\n", dest);
 // 	}
 // 	else if (arg == 5)
 // 	{
-// 		if (src != ft_memmove(src, dest, 0))
-// 			write(1, "dest's adress was not returned\n", 31);
-// 		write(1, dest, 22);
+// 		ft_memmove(src, dest, 0);
+// 		memmove(src, dest2, 0);
+// 		printf("\nla fonction : %s\n", dest2);
+// 		printf("\nma fonction : %s\n", dest);
 // 	}
 // 	return (0);
 // }

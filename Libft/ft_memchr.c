@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbeaurai < bbeaurai@student.42lehavre.f    +#+  +:+       +#+        */
+/*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 15:27:40 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/22 10:25:21 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/10/28 10:49:24 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,33 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	const char	*str;
 
 	i = 0;
-	str = s;
-	while (str[i] && i < n)
-	{
-		if (c == str[i])
-			return ((char *)&str[i]);
+	str = (char *)s;
+	while (str[i] != c && str[i] && i < (n - 1))
 		i++;
-	}
-	return (0);
+	if (c == str[i])
+		return ((char *)&str[i]);
+	return (NULL);
 }
 
 // #include <stdio.h>
 // #include <string.h>
 // int main(void)
 // {
-// 	int size = 65;
+// 	// int size = 2;
 // 	size_t n = 2;
 // 	//
 // 	// ********************|Ma Fonction|*******************
 // 	//
-// 	char dest[100] = "vfAoAhAe";
+// 	char src[100] = "bonjourno";
 // 	printf("\n\n\t\t\033[91;01m|Ma Fonction|\033[00m");
-// 	char *str = ft_memchr(dest, size, n);
+// 	char *str = ft_memchr(src, 'n', n);
 // 	printf("\nResult : %s\n", str);
 // 	//
-// 	// **************++******|La Fonction|********************
+// 	// ********************|La Fonction|********************
 // 	//
-// 	char dest2[100] = "vfAoAhAe";
+// 	char src2[100] = "bonjourno";
 // 	printf("\n\t\t\033[92;01m|La Fonction|\033[00m");
-// 	char *str2 = memchr(dest2, size, n);
+// 	char *str2 = memchr(src2, 'n', n);
 // 	printf("\nResult : %s", str2);
 // 	//
 // 	// ********************|Ternaire|********************

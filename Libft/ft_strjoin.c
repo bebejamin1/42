@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbeaurai < bbeaurai@student.42lehavre.f    +#+  +:+       +#+        */
+/*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:59:52 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/24 16:19:40 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/10/28 14:32:51 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static char	*error(char const *s1, char const *s2)
 {
 	char	*str;
+
 	if (s1[0] == 0)
 	{
 		str = ft_strdup(s2);
@@ -25,7 +26,7 @@ static char	*error(char const *s1, char const *s2)
 		str = ft_strdup(s1);
 		return (str);
 	}
-	return(0);
+	return (0);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -33,12 +34,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*str1;
 	int		i;
 	int		j;
-	
+
 	if (s1[0] == 0 || s2[0] == 0)
-	{
 		return (error(s1, s2));
-	}
-	str1 = malloc(sizeof *s1 + *s2 + 2);
+	str1 = malloc(sizeof(char *) * *s1 + *s2 + 2);
 	if (!str1)
 		return (NULL);
 	i = 0;
