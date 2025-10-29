@@ -6,9 +6,23 @@
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 07:47:51 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/28 17:25:54 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/10/29 10:29:07 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+Valeur de retour : Le tableau des nouvelles chaînes résultant de la division.
+//
+NULL si l'allocation échoue.
+//
+Fonctions externes : malloc, free
+Description : Alloue de la mémoire (à l'aide de malloc(3)) et renvoie un
+tableau de chaînes obtenu en divisant les chaînes 
+de caractères par des caractères génériques (s) à l'aide du
+caractère 'c' comme délimiteur. Le tableau doit
+se terminer par un pointeur NULL.
+*/
+
 
 #include "libft.h"
 
@@ -21,29 +35,68 @@ static int	ft_countword(char *s, char c)
 	i = 0;
 	while (s[i])
 	{
-		// Si on tombe sur un caractère NON séparateur
-		// et que le suivant est un séparateur ou la fin -> on compte 1 mot
 		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
 			nb++;
 		i++;
 	}
 	return (nb);
 }
-
-
-int	main(void)
+static char	**ft_malloc_string(char *s, char c)
 {
-	char *test1 = ",JAN,FEB,MAR,APR,,,,MAY,JUN,JUL,,AUG,SEP,OCT,NOV,DEC,";
-	char *test2 = "   Hello   world this  is   C  !  ";
-	char *test3 = "42";
-	char *test4 = ",,only,one,,word,,";
-	char *test5 = "       ";
+	char **string;
+	int nb;
+	int tab;
+	int i;
+	int j;
+	
+	string = NULL;
+	nb = ft_countword((char *)s, c) + 1;
+	tab = 0;
+	i = 0;
+	j = 0;
+	while (tab <= nb)
+	{
+		while (s[i])
+		{
+			if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+			{
+				string[tab] = malloc(sizeof(char *) * (i - j) + 2);
+				while (j < i)
+				{
+					string[tab][j] = s[j];
+					j++;
+				}
+				tab++;
+			}
+			i++;
+		}
+	}
+	return (string);
+}
 
-	printf("Test 1 = %d mots\n", ft_countword(test1, ','));
-	printf("Test 2 → %d mots\n", ft_countword(test2, ' '));
-	printf("Test 3 → %d mots\n", ft_countword(test3, ','));
-	printf("Test 4 → %d mots\n", ft_countword(test4, ','));
-	printf("Test 5 → %d mots\n", ft_countword(test5, ' '));
 
+char **ft_split(char const *s, char c)
+{
+	int nb;
+	char **string;
+	
+	nb = ft_countword((char *)s, c);
+	string = malloc(sizeof(char *) * (nb + 1));
+	if (!string)
+		return (NULL);
+	string = ft_malloc_string((char *)s, c);
+	return (string);
+}
+
+int main(void)
+{
+	char *str = ",JAN,FEB,MAR,APR,,,,,,,,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC,";
+	char *string[] = ft_countword(str, ',');
+	int i = 0;
+	while (*string[i])
+	{
+		printf("%s", &string[i]);
+		i++;
+	}
 	return (0);
 }
