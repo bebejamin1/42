@@ -6,7 +6,7 @@
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 14:52:42 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/28 14:23:30 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/10/30 15:27:36 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 	lenght = ft_strlen(s);
 	while (lenght >= 0)
 	{
-		if (c == ptr[lenght])
+		if ((char)c == ptr[lenght])
 			return ((char *)&ptr[lenght]);
 		lenght--;
 	}

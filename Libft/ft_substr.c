@@ -6,7 +6,7 @@
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 08:14:53 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/28 09:38:06 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/10/30 18:05:21 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	lenght = len + start;
 	if (start >= ft_strlen(s))
 		return (ft_calloc(1, sizeof(char)));
+	else if ((ft_strlen(s) - start) < len)
+		str = malloc(sizeof(char) * ((ft_strlen(s) - start) + 1));
 	else
-		str = malloc(sizeof(char) * (len + 1));
+		str = malloc(sizeof(char) * (len) + 1);
 	if (!str)
 		return (NULL);
 	while (s[start] && start < lenght)
@@ -44,8 +46,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 // 	// ********************|Ma Fonction|*******************
 // 	//
 // 	// printf("\nstart %u\n", start);
-// 	char str[100] = "blablablablabla";
-// 	char *a = ft_substr(str, start, len);
+// 	char str[100] = "0123456789";
+// 	char *a = ft_substr(str, 9, 10);
 // 	// printf("\n\n\t\t\033[91;01m|Ma Fonction|\033[00m");
 // 	// printf("\n\nResult : %s\n", a);
 // 	free (a);

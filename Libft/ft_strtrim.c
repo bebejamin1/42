@@ -6,7 +6,7 @@
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 10:20:35 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/28 17:09:05 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/10/30 18:45:36 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	a = ft_checkleft((char *)s1, (char *)set);
 	z = ft_checkright((char *)s1, (char *)set) + 1;
-	str = malloc((sizeof(char) * ((z - a) + 1)));
+	// printf("a = %d\n", a);
+	// printf("z = %d\n", z);
+	if (z - a == 1 && s1[a] == '\0') 
+		str = malloc(sizeof(char) * (z - a));
+	else
+		str = malloc(sizeof(char) * (z - a) + 1);
 	if (!str)
 		return (NULL);
 	while (a < z)
@@ -95,10 +100,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 // 	//
 // 	// ********************|Ma Fonction|*******************
 // 	//
-// 	char *str1 = "\n\t    Hello \t  Please\n Trim me !\t\";
-// 	char *str2 = " \n\t";
-// 	char *a = ft_strtrim(str1, str2);
+// 	// char *str1 = "abcdba";
+// 	// char *str2 = "acb";
+// 	char *a = ft_strtrim("   xxx   xxx", " x");
 // 	printf("\n\n\t\t\033[91;01m|Ma Fonction|\033[00m");
-// 	printf("\n\nResult : %s", a);
+// 	printf("\n\nResult :%s", a);
 // 	free (a);
 // }

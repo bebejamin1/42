@@ -6,7 +6,7 @@
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 09:59:52 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/28 14:32:51 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/10/30 11:40:51 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (s1[0] == 0 || s2[0] == 0)
 		return (error(s1, s2));
-	str1 = malloc(sizeof(char *) * *s1 + *s2 + 2);
+	str1 = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
 	if (!str1)
 		return (NULL);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:02:20 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/28 14:16:03 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/10/30 17:43:22 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,21 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
+	char	*b;
+	char	*l;
 
-	if (big[0] == '\0' && len == 0)
-		return ((char *)big);
-	if (little[0] == '\0')
-		return ((char *)big);
+	b = (char *)big;
+	l = (char *)little;
+	if (l[0] == '\0')
+		return (b);
 	i = 0;
-	while (big[i] && i < len)
+	while (b[i] && i < len)
 	{
 		j = 0;
-		while (big[i + j] == little[j] && i + j < len)
+		while (b[i + j] == l[j] && i + j < len)
 		{
-			if (little[j + 1] == '\0')
-				return ((char *)&big[i]);
+			if (l[j + 1] == '\0')
+				return (&b[i]);
 			j++;
 		}
 		i++;
@@ -47,7 +49,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 // 	// char src[100] = "vfAoAhAe";
 // 	// char dest[100] = "vfAoAhAe";
 // 	printf("\n\n\t\t\033[91;01m|Ma Fonction|\033[00m");
-// 	char *str = ft_strnstr("", "", 0);
+// 	char *str = ft_strnstr(0x5642a8f4002c: "", "teste", 0);
 // 	printf("\nResult : %s\n", str);
 // 	//
 // 	// ********************|La Fonction|********************
@@ -55,7 +57,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 // 	// char src2[100] = "vfAoAhAe";
 // 	// char dest2[100] = "vfAoAhAe";
 // 	printf("\n\t\t\033[92;01m|La Fonction|\033[00m");
-// 	char *str2 = strnstr("", "", 0);
+// 	char *str2 = strnstr(0x5642a8f4002c: "", "teste", 0);
 // 	printf("\nResult : %s", str2);
 // 	//
 // 	// ********************|Ternaire|********************
