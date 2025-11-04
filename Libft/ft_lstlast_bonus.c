@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 10:14:59 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/11/04 07:45:42 by bbeaurai         ###   ########.fr       */
+/*   Created: 2025/11/03 14:10:36 by bbeaurai          #+#    #+#             */
+/*   Updated: 2025/11/03 14:42:38 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*head;
-
-	head = malloc(sizeof(t_list));
-	if (!head)
-		return (NULL);
-	head->content = content;
-	head->next = NULL;
-	return (head);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }
-// int main(void)
+// int	main(void)
 // {
-// 	char	*content = "MOUTON";
-// 	t_list	*head = ft_lstnew(content);
-// 	printf("content = %s", (char *)head->content);
-// 	free (head);
+// 	t_list *list;
+// 	char	*s;
+// 	s = "ALED";
+// 	list = ft_lstnew(s);
+// 	s = "BEN";
+// 	ft_lstadd_front(&list, ft_lstnew(s));
+// 	s = "AU SECOUR";
+// 	ft_lstadd_front(&list, ft_lstnew(s));
+// 	t_list *lstlast = ft_lstlast(list);
+// 	printf("%s", (char *)lstlast->content);
 // }

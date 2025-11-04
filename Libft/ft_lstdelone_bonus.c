@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 10:14:59 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/11/04 07:45:42 by bbeaurai         ###   ########.fr       */
+/*   Created: 2025/11/03 15:54:12 by bbeaurai          #+#    #+#             */
+/*   Updated: 2025/11/04 15:10:27 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+// void	del_node(void *content)
+// {
+// 	if (!content)
+// 		return ;
+// 	free(content);
+// }
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	t_list	*head;
-
-	head = malloc(sizeof(t_list));
-	if (!head)
-		return (NULL);
-	head->content = content;
-	head->next = NULL;
-	return (head);
+	if (!lst)
+		return ;
+	del(lst->content);
+	free (lst);
 }
 // int main(void)
 // {
-// 	char	*content = "MOUTON";
-// 	t_list	*head = ft_lstnew(content);
-// 	printf("content = %s", (char *)head->content);
-// 	free (head);
+// 	t_list *list;
+// 	list = ft_lstnew(ft_strdup((char *)"ALED"));
+// 	printf("adresse : %p\t", (char *)list->content);
+// 	printf("Valeur  : %s\n", (char *)list->content);
+// 	ft_lstdelone(list, del_node);
 // }

@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 10:14:59 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/11/04 07:45:42 by bbeaurai         ###   ########.fr       */
+/*   Created: 2025/11/03 11:09:46 by bbeaurai          #+#    #+#             */
+/*   Updated: 2025/11/03 13:21:23 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*head;
-
-	head = malloc(sizeof(t_list));
-	if (!head)
-		return (NULL);
-	head->content = content;
-	head->next = NULL;
-	return (head);
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }
 // int main(void)
 // {
-// 	char	*content = "MOUTON";
-// 	t_list	*head = ft_lstnew(content);
-// 	printf("content = %s", (char *)head->content);
-// 	free (head);
+// 	t_list	*s = ft_lstnew("yolobiblo hihihi");
+// 	t_list	*s1 = ft_lstnew("picore");
+// 	ft_lstadd_front(&s, s1);
+// 	printf("content = %s\n", (char *)s1->content);
+// 	printf("content = %s", (char *)s1->next->content);
 // }
