@@ -6,7 +6,7 @@
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:41:55 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/11/04 07:37:48 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/11/05 12:45:29 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,16 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	ft_lstlast(*lst)->next = new;
-	new->next = NULL;
+	t_list	*last;
+
+	if (new && *lst)
+	{
+		last = *lst;
+		last = ft_lstlast(*lst);
+		last->next = new;
+	}
+	else if (!(*lst))
+		*lst = new ;
 }
 // int main(void)
 // {
