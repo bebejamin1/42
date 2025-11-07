@@ -6,7 +6,7 @@
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 07:07:33 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/28 14:30:39 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/11/07 10:36:31 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char		*maldives;
-	unsigned char		*wiki;
+	unsigned char		*dest2;
+	unsigned char		*src2;
 	size_t				i;
 
 	i = 0;
-	maldives = (unsigned char *)dest;
-	wiki = (unsigned char *)src;
+	dest2 = (unsigned char *)dest;
+	src2 = (unsigned char *)src;
 	if (!dest && !src)
 		return (NULL);
 	if (dest > src)
 	{
 		while (n > i)
 		{
-			maldives[n - 1] = wiki[n - 1];
+			dest2[n - 1] = src2[n - 1];
 			n--;
 		}
-		return (maldives);
+		return (dest2);
 	}
 	while (i < n)
 	{
-		maldives[i] = wiki[i];
+		dest2[i] = src2[i];
 		i++;
 	}
-	return (maldives);
+	return (dest2);
 }
 
 // int		main(int argc, const char *argv[])

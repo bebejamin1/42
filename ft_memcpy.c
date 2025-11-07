@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbeaurai < bbeaurai@student.42lehavre.f    +#+  +:+       +#+        */
+/*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 13:45:41 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/20 15:52:42 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/11/07 10:35:48 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char		*final;
-	const unsigned char	*eau;
+	unsigned char		*dest2;
+	const unsigned char	*src2;
 	size_t				i;
 
 	i = 0;
-	final = dest;
-	eau = src;
-	if (!final && !eau)
+	dest2 = dest;
+	src2 = src;
+	if (!dest2 && !src2)
 		return (0);
 	while (i < n)
 	{
-		final[i] = eau[i];
+		dest2[i] = src2[i];
 		i++;
 	}
-	return (final);
+	return (dest2);
 }
 
 // #include <string.h>
