@@ -6,7 +6,7 @@
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:17:56 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/30 10:53:47 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/11/07 13:44:50 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,81 +59,21 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-// void	ft_print_result(char const *s)
+void	ft_print_result(char const *s)
+{
+	int		len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	write(1, s, len);
+}
+
+// int		main(void)
 // {
-// 	int		len;
-
-// 	len = 0;
-// 	while (s[len])
-// 		len++;
-// 	write(1, s, len);
-// }
-
-// int		main(int argc, const char *argv[])
-// {
-// 	int		arg;
-
-// 	if (argc == 1)
-// 		return (0);
-// 	else if ((arg = atoi(argv[1])) == 1)
-// 	{
-// 		char *res = ft_itoa(0);
-// 		ft_print_result(res);
-// 		free(res);
-// 	}
-// 	else if (arg == 2)
-// 	{
-// 		char *res = ft_itoa(9);
-// 		ft_print_result(res);
-// 		free(res);
-// 	}
-// 	else if (arg == 3)
-// 	{
-// 		char *res = ft_itoa(-9);
-// 		ft_print_result(res);
-// 		free(res);
-// 	}
-// 	else if (arg == 4)
-// 	{
-// 		char *res = ft_itoa(10);
-// 		ft_print_result(res);
-// 		free(res);
-// 	}
-// 	else if (arg == 5)
-// 	{
-// 		char *res = ft_itoa(-10);
-// 		ft_print_result(res);
-// 		free(res);
-// 	}
-// 	else if (arg == 6)
-// 	{
-// 		char *res = ft_itoa(8124);
-// 		ft_print_result(res);
-// 		free(res);
-// 	}
-// 	else if (arg == 7)
-// 	{
-// 		char *res = ft_itoa(-9874);
-// 		ft_print_result(res);
-// 		free(res);
-// 	}
-// 	else if (arg == 8)
-// 	{
-// 		char *res = ft_itoa(543000);
-// 		ft_print_result(res);
-// 		free(res);
-// 	}
-// 	else if (arg == 9)
-// 	{
-// 		char *res = ft_itoa(-2147483648LL);
-// 		ft_print_result(res);
-// 		free(res);
-// 	}
-// 	else if (arg == 10)
-// 	{
-// 		char *res = ft_itoa(2147483647);
-// 		ft_print_result(res);
-// 		free(res);
-// 	}
-// 	return (0);
+// 		printf("result = %s\n", ft_itoa(INT_MAX));
+// 		printf("result = %s\n", ft_itoa(INT_MIN));
+// 		printf("result = %s\n", ft_itoa(-10));
+// 		printf("result = %s\n", ft_itoa(42));
+// 		printf("result = %s\n", ft_itoa(0));
 // }
