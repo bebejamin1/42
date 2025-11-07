@@ -6,7 +6,7 @@
 #    By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/20 08:27:15 by bbeaurai          #+#    #+#              #
-#    Updated: 2025/11/05 10:32:41 by bbeaurai         ###   ########.fr        #
+#    Updated: 2025/11/07 18:11:56 by bbeaurai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,13 +29,13 @@ OBJ_BONUS = $(BONUS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) :
+$(NAME) :$(OBJ_SRC)
 	cc -Wall -Wextra -Werror -c $(SRC)
 	ar rc $(NAME) $(OBJ_SRC)
 
-bonus : $(OBJ_SRC) $(OBJ_BONUS)
-	cc -Wall -Wextra -Werror -c $(BONUS) $(SRC)
-	ar rc $(NAME) $(OBJ_SRC) $(OBJ_BONUS)
+bonus : $(OBJ_BONUS)
+	cc -Wall -Wextra -Werror -c $(BONUS)
+	ar rc $(NAME) $(OBJ_BONUS)
 
 clean:
 	rm -f $(OBJ_SRC) $(OBJ_BONUS)
