@@ -6,7 +6,7 @@
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 15:49:55 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/11/04 17:19:55 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/11/07 08:34:13 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
+# include <ctype.h>
+# include <limits.h>
+# include <stdint.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

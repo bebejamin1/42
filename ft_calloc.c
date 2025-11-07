@@ -6,37 +6,30 @@
 /*   By: bbeaurai <bbeaurai@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:47:29 by bbeaurai          #+#    #+#             */
-/*   Updated: 2025/10/28 14:21:16 by bbeaurai         ###   ########.fr       */
+/*   Updated: 2025/11/07 09:13:45 by bbeaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	*ft_calloc( size_t count, size_t size)
 {
-	unsigned char	*pointer;
-	size_t			i;
+	void	*pointer;
 
 	if (size == 0 || count == 0)
 		return (malloc(0));
-	pointer = (void *)malloc(count * size);
+	if (count > SIZE_MAX / size)
+		return (NULL);
+	pointer = malloc(count * size);
 	if (!pointer)
 		return (NULL);
-	i = 0;
-	while (i <= (count * size))
-	{
-		pointer[i] = 0;
-		i++;
-	}
+	ft_memset(pointer, 0, (count * size));
 	return (pointer);
 }
 
-// #include <stdlib.h>
-// #include <stdio.h>
 // int main(void)
 // {
-// 	size_t elementCount = 10;
+// 	size_t elementCount = SIZE_MAX;
 // 	size_t size = sizeof(int);
 // 	int *pointer = (int *) calloc(elementCount, size);
 // 	int *pointer2 = (int *) ft_calloc(elementCount, size);
