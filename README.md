@@ -1,9 +1,7 @@
 <img width="448" height="142" alt="ascii-art-text" src="https://github.com/user-attachments/assets/6ccb622c-ed00-4f65-bd91-b0af7b6e72cc" />
 
----
-
 # Partie 1 (Fonctions Libc) : 23 fonctions
-le debut des emmerdes ...
+le debut des emmerdes ...  
 
 ```
 | `ft_isalpha` | Vérifie si le caractère est une lettre de l'alphabet
@@ -31,10 +29,10 @@ le debut des emmerdes ...
 | `ft_calloc` | Alloue de la mémoire pour un tableau et l'initialise à zéro |
 ```
 
----
+---  
 
 # Partie 2 (Fonctions additionnelles) : 11 fonctions.
-Encore <<<
+Encore <<<  
 
 ```
 | `ft_substr` | Extrait une sous-chaîne d'une chaîne |
@@ -50,10 +48,10 @@ Encore <<<
 | `ft_putnbr_fd` | Écrit un nombre entier sur un file descriptor |
 ```
 
----
+---  
 
 # Partie Bonus : 9 fonctions.
-Enfin ^^
+Enfin ^^  
 
 ```
 | `ft_lstnew` | Crée un nouveau nœud (maillon) de liste en allouant de la mémoire. |
@@ -67,19 +65,20 @@ Enfin ^^
 | `ft_lstmap` | Crée une nouvelle liste en appliquant une fonction (`f`) à chaque nœud de l'ancienne. |
 ```
 
----
+---  
 
-- [x] KO 1 - CALLOC DE MERDE |
+- [x] KO 1 - CALLOC DE MERDE  
+`
 initial_errors:  | test_ft_isalpha: OK | test_ft_isdigit: OK | test_ft_isalnum: OK | test_ft_isascii: OK |
 test_ft_isprint: OK | test_ft_strlen: OK | test_ft_memset: OK | test_ft_bzero: OK | test_ft_memcpy: OK |
 test_ft_memmove: OK | test_ft_strlcpy: OK | test_ft_strlcat: OK | test_ft_toupper: OK | test_ft_tolower: OK |
 test_ft_strchr: OK | test_ft_strrchr: OK | test_ft_strncmp: OK | test_ft_memchr: OK | test_ft_memcmp: OK |
-test_ft_strnstr: OK | test_ft_atoi: OK | `test_ft_calloc: Error encountered while testing` | test_ft_strdup: OK |
+test_ft_strnstr: OK | test_ft_atoi: OK | test_ft_calloc: Error encountered while testing | test_ft_strdup: OK |
 test_ft_substr: OK | test_ft_strjoin: OK | test_ft_strtrim: OK | test_ft_split: OK | test_ft_itoa: OK | test_ft_strmapi: OK |
 test_ft_striteri: OK | test_ft_putchar_fd: OK | test_ft_putstr_fd: OK | test_ft_putendl_fd: OK | test_ft_putnbr_fd: OK |
 bonus: 9/9 functions correct
-
-- [x] KO 2 - MAKEFILE DE MERDE !!!!! |
-- [ ] Inch’Allah ca passe !!!@!@#!#@!$%!^&$^$@%!#^&@^@%! |
+`
+- [x] KO 2 - MAKEFILE DE MERDE !!!!!  
+- [ ] Inch’Allah ca passe !!!@!@#!#@!$%!^&$^$@%!#^&@^@%!  
 
 <img width="10,2" height="12,8" alt="ascii-art-text (1)" src="https://github.com/user-attachments/assets/22d851b3-044c-4811-ad51-0228343640e6" />
